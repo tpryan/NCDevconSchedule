@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TabbedViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" initialize="init(event)" 
+								  xmlns:s="library://ns.adobe.com/flex/spark">
+	<fx:Script>
+		<![CDATA[
+			import com.ncdevcon.AppData;
+			import com.ncdevcon.db.DBManger;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
+			
+			[Bindable]
+			public var dataToPass:Object = new Object();
+			
+			protected function init(event:FlexEvent):void
+			{
+				
+				var db:File = File.applicationDirectory.resolvePath("ncdevcon.db");
+				var dbManager:DBManger = new DBManger(db);
+				var appData:AppData = new AppData();
+				appData.dbManager = dbManager;
+				dataToPass.appData = appData;
+				dataToPass.slots = dbManager.slotDBO.list();
+				
+			}
+			
+		]]>
+	</fx:Script>
+	<s:ViewNavigator label="Schedule" width="100%" height="100%" firstView="views.ScheduleView" firstViewData="{dataToPass}"/>
+	<s:ViewNavigator label="Speakers" width="100%" height="100%" firstView="views.SpeakersView" firstViewData="{dataToPass}"/>
+</s:TabbedViewNavigatorApplication>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" dataChange="onDataChange(event)" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Speakers">
+	<fx:Script>
+		<![CDATA[
+			import com.ncdevcon.AppData;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
+			public var appData:AppData;
+			[Bindable]
+			public var speakers:ArrayCollection
+			
+			protected function onDataChange(event:FlexEvent):void
+			{
+				appData = data.appData as AppData;
+				speakers = appData.dbManager.speakerDBO.list();
+			}
+			
+		]]>
+	</fx:Script>
+	<s:List id="speakersList" top="5" left="0" right="0" bottom="5" dataProvider="{speakers}" labelField="fullName">
+		
+	</s:List>
+</s:View>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark">
+	<fx:Script>
+		<![CDATA[
+			import com.ncdevcon.AppData;
+			import com.ncdevcon.vo.Topic;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
+			public var appData:AppData;
+			public var dataToPush:Object = new Object();
+			
+			
+			protected function onDataChange(event:FlexEvent):void
+			{
+				appData = data.appData as AppData;
+			}
+			
+			protected function trackLabel_clickHandler(event:MouseEvent):void
+			{
+				dataToPush.appData = appData;
+				dataToPush.track = data.topic.track;
+				navigator.pushView(TrackView, dataToPush);
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:Scroller top="5" bottom="5" left="5" right="5"> 
+		<s:VGroup clipAndEnableScrolling="true"  width="100%" height="100%" gap="25">
+			<s:Label id="titleLabel" text="{data.topic.title} "  width="100%" />
+			<s:Label id="trackLabel" text="{data.topic.track.title}" styleName="{data.topic.track.title}" click="trackLabel_clickHandler(event)"  width="100%" />
+			<s:Label id="slotLabel" text="{data.topic.slot.title} {data.topic.slot.range}"  width="100%" />
+			<s:Label id="descriptionLabel" text="{data.topic.description}"  width="100%" />
+		</s:VGroup>
+	</s:Scroller>
+	
+	
+</s:View>

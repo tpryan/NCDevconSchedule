@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" dataChange="onDataChange(event)" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="{data.slot.range}">
+	<fx:Script>
+		<![CDATA[
+			import com.ncdevcon.AppData;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
+			public var appData:AppData;
+			public var dataToPush:Object = new Object();
+			[Bindable]
+			public var topics:ArrayCollection = new ArrayCollection();
+
+
+			
+			protected function onDataChange(event:FlexEvent):void
+			{
+				appData = data.appData as AppData;
+				topics = appData.dbManager.topicDBO.listBySlot(data.slot);
+			}
+			
+			protected function topicList_clickHandler(event:MouseEvent):void
+			{
+				if (topicList.selectedIndex >= 0){
+					dataToPush.appData = appData;
+					dataToPush.topic = topicList.selectedItem;
+					navigator.pushView(TopicView, dataToPush);
+				}
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:List id="topicList" top="5" left="0" right="0" bottom="5" dataProvider="{topics}" labelField="title" click="topicList_clickHandler(event)">
+		<s:itemRenderer>
+			<fx:Component>
+				<s:IconItemRenderer messageFunction="renderMessage" labelField="title">
+					<fx:Script>
+						<![CDATA[
+							import com.ncdevcon.vo.Topic;
+							public function renderMessage(topic:Topic):String{
+								return topic.speaker.fullName;
+							}
+						]]>
+					</fx:Script>
+				</s:IconItemRenderer>
+			</fx:Component>
+		</s:itemRenderer>
+	</s:List>
+	
+	
+</s:View>
