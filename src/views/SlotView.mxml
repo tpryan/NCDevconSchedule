@@ -52,7 +52,7 @@
 	<s:List id="topicList" top="0" left="0" right="0" bottom="0" dataProvider="{topics}" labelField="title" click="topicList_clickHandler(event)">
 		<s:itemRenderer>
 			<fx:Component>
-				<s:IconItemRenderer messageFunction="renderMessage" labelField="title" styleName="iirLabel" >
+				<s:IconItemRenderer messageField="title" labelFunction="renderMessage" styleName="tliirLabel" messageStyleName="tliirMessage" >
 					<fx:Script>
 						<![CDATA[
 							import com.ncdevcon.vo.Topic;

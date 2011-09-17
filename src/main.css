@@ -39,7 +39,14 @@ s|List{
 	alternatingItemColors: #444444,#000000,#7c8a80,#b0b89e,#8c6842,#8c6842,#61513b,#444444;
 }
 
+.tliirLabel{
+	color: #444;
 	
+}
+.tliirMessage{
+	color: #369;
+	
+}	
 
 
 #fullNameLabel, #titleLabel{
@@ -99,6 +106,15 @@ s|List{
 	#speakerLabel{
 		font-size: 20px;
 	}
+	
+	.tliirLabel{
+		font-size: 12px;
+		
+	}
+	.tliirMessage{
+		font-size: 20px;
+		
+	}
 }
 
 @media (application-dpi: 240){
@@ -112,6 +128,23 @@ s|List{
 	
 	#speakerLabel{
 		font-size: 30px;
+	}
+	
+	.tliirLabel{
+		font-size: 20px;
+		
+	}
+	.tliirMessage{
+		font-size: 30px;
+		
+	}	
+	.tliirLabel{
+		font-size: 24px;
+		
+	}
+	.tliirMessage{
+		font-size: 40px;
+		
 	}
 }
 
