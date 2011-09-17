@@ -31,7 +31,7 @@
 			
 		]]>
 	</fx:Script>
-	<s:List id="speakersList" top="5" left="0" right="0" bottom="5" dataProvider="{speakers}" labelField="fullName" click="speakersList_clickHandler(event)">
+	<s:List id="speakersList" top="5" left="0" right="0" bottom="5" dataProvider="{speakers}" labelField="fullName" styleName="iirLabel"  click="speakersList_clickHandler(event)">
 		
 	</s:List>
 </s:View>

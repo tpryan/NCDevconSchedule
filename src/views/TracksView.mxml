@@ -32,7 +32,7 @@
 			
 		]]>
 	</fx:Script>
-	<s:List id="trackList" top="5" left="0" right="0" bottom="5" dataProvider="{tracks}" labelField="title" click="trackList_clickHandler(event)">
+	<s:List id="trackList" top="5" left="0" right="0" bottom="5" dataProvider="{tracks}" styleName="iirLabel"  labelField="title" click="trackList_clickHandler(event)">
 		
 	</s:List>
 </s:View>

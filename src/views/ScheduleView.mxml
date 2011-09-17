@@ -35,7 +35,7 @@
 	<s:List id="slotList" top="5" left="0" right="0" bottom="5" dataProvider="{slots}" labelField="startTime" click="slotList_clickHandler(event)">
 		<s:itemRenderer>
 			<fx:Component>
-				<s:IconItemRenderer messageField="title" labelField="range" />
+				<s:IconItemRenderer messageField="title" labelField="range" styleName="iirLabel" />
 			</fx:Component>
 		</s:itemRenderer>
 	</s:List>

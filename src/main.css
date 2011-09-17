@@ -1,0 +1,38 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+
+
+global
+{
+	fontFamily: "Georgia";	
+}
+
+
+s|ActionBar{
+	chromeColor:"0x000000";
+	accentColor:"0x0000FF";
+	
+}
+
+s|TabbedViewNavigator #tabBar{
+	chromeColor:"0x000000";
+	accentColor:"0x0000FF";
+}
+
+s|List{
+	alternatingItemColors: #DDDDDD,#FFFFFF;
+}
+
+/* IconItemReneder Label Style*/
+.iirLabel{
+	color: #369;
+}
+
+
+@media (os-platform:"IOS"){
+	s|ActionBar{
+		defaultButtonAppearance:"beveled";
+		titleAlign:"center";
+	}
+}
+

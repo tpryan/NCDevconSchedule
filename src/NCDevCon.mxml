@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:TabbedViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" initialize="init(event)" 
 								  xmlns:s="library://ns.adobe.com/flex/spark">
+	
+	<fx:Style source="main.css" />
+	
 	<fx:Script>
 		<![CDATA[
 			import com.ncdevcon.AppData;
