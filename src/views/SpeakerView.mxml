@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" dataChange="onDataChange(event)" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.ncdevcon.AppData;
+			import com.ncdevcon.vo.Topic;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
+			public var appData:AppData;
+			public var dataToPush:Object = new Object();
+			
+			
+			protected function onDataChange(event:FlexEvent):void
+			{
+				appData = data.appData as AppData;
+			}
+			
+			
+			
+			protected function sessionsButton_clickHandler(event:MouseEvent):void
+			{
+				dataToPush.appData = appData;
+				dataToPush.speaker = data.speaker;
+				navigator.pushView(SpeakerTopicsView, dataToPush);
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	
+	
+	<s:Scroller top="5" bottom="5" left="5" right="5"> 
+		<s:VGroup clipAndEnableScrolling="true"  width="100%" height="100%" gap="25">
+			<s:Label id="fullNameLabel" text="{data.speaker.fullName} "  width="100%" />
+			<s:Label id="bioLabel" text="{data.speaker.bio}"   width="100%" />
+			<s:Button id="sessionsButton" label="{data.speaker.firstName}'s Sessions" click="sessionsButton_clickHandler(event)" />
+		</s:VGroup>
+	</s:Scroller>
+	
+	
+</s:View>

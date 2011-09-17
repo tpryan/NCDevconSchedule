@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" dataChange="onDataChange(event)" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Tracks">
+	<fx:Script>
+		<![CDATA[
+			import com.ncdevcon.AppData;
+			import com.ncdevcon.vo.Track;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
+			public var appData:AppData;
+			public var dataToPush:Object = new Object();
+			[Bindable]
+			public var tracks:ArrayCollection
+			
+			protected function onDataChange(event:FlexEvent):void
+			{
+				appData = data.appData as AppData;
+				tracks = appData.dbManager.trackDBO.list("title");
+			}
+			
+			protected function trackList_clickHandler(event:MouseEvent):void
+			{
+				if (trackList.selectedIndex >= 0){
+					dataToPush.appData = appData;
+					dataToPush.track = trackList.selectedItem;
+					navigator.pushView(TrackView, dataToPush);
+				}
+				
+			}
+			
+		]]>
+	</fx:Script>
+	<s:List id="trackList" top="5" left="0" right="0" bottom="5" dataProvider="{tracks}" labelField="title" click="trackList_clickHandler(event)">
+		
+	</s:List>
+</s:View>

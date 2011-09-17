@@ -9,6 +9,7 @@
 			import mx.events.FlexEvent;
 			
 			public var appData:AppData;
+			public var dataToPush:Object = new Object();
 			[Bindable]
 			public var speakers:ArrayCollection
 			
@@ -18,9 +19,19 @@
 				speakers = appData.dbManager.speakerDBO.list();
 			}
 			
+			protected function speakersList_clickHandler(event:MouseEvent):void
+			{
+				if (speakersList.selectedIndex >= 0){
+					dataToPush.appData = appData;
+					dataToPush.speaker = speakersList.selectedItem;
+					navigator.pushView(SpeakerView, dataToPush);
+				}
+				
+			}
+			
 		]]>
 	</fx:Script>
-	<s:List id="speakersList" top="5" left="0" right="0" bottom="5" dataProvider="{speakers}" labelField="fullName">
+	<s:List id="speakersList" top="5" left="0" right="0" bottom="5" dataProvider="{speakers}" labelField="fullName" click="speakersList_clickHandler(event)">
 		
 	</s:List>
 </s:View>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" dataChange="onDataChange(event)" 
-		xmlns:s="library://ns.adobe.com/flex/spark" title="{data.track.title}">
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" dataChange="onDataChange(event)"
+		xmlns:s="library://ns.adobe.com/flex/spark" title="SpeakerTopics">
 	<fx:Script>
 		<![CDATA[
 			import com.ncdevcon.AppData;
-			import com.ncdevcon.vo.Track;
 			
 			import mx.collections.ArrayCollection;
 			import mx.events.FlexEvent;
@@ -19,11 +18,7 @@
 			protected function onDataChange(event:FlexEvent):void
 			{
 				appData = data.appData as AppData;
-				//Don't know what I screwed up here but I have to manually cast.
-				var track:Track = new Track();
-				track.trackid = data.track.trackid;
-				track.title = data.track.title;
-				topics = appData.dbManager.topicDBO.listByTrack(track);
+				topics = appData.dbManager.topicDBO.listBySpeaker(data.speaker);
 			}
 			
 			protected function topicList_clickHandler(event:MouseEvent):void
