@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" dataChange="onDataChange(event)" 
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" dataChange="onDataChange(event)" creationComplete="init(event)" 
 		xmlns:s="library://ns.adobe.com/flex/spark" title="">
 	
 	<fx:Script>
@@ -27,6 +27,16 @@
 				dataToPush.speaker = data.speaker;
 				navigator.pushView(SpeakerTopicsView, dataToPush);
 				
+			}
+			
+			protected function init(event:FlexEvent):void
+			{
+				if (data.appData.softControls){
+					var backBtn:Button = new Button();
+					backBtn.label = "Back";
+					backBtn.addEventListener(MouseEvent.CLICK, function():void{navigator.popView()});
+					navigationContent = [backBtn];
+				}
 			}
 			
 		]]>

@@ -6,6 +6,8 @@ package com.ncdevcon
 	{
 		
 		public var dbManager:DBManger;
+		public var os:String;
+		public var softControls:Boolean = false;
 		
 		public function AppData()
 		{

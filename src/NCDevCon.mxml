@@ -15,13 +15,26 @@
 			
 			protected function init(event:FlexEvent):void
 			{
+				var appData:AppData = new AppData();
+				
+				if (Capabilities.version.indexOf("IOS") > -1){
+					appData.os= "IOS";
+					appData.softControls = true;
+				}
+				else if (Capabilities.version.indexOf("AND") > -1){
+					appData.os = "AND"
+					appData.softControls = false;
+				}
+				trace(Capabilities.version);
 				
 				var db:File = File.applicationDirectory.resolvePath("ncdevcon.db");
 				var dbManager:DBManger = new DBManger(db);
-				var appData:AppData = new AppData();
+				
 				appData.dbManager = dbManager;
 				dataToPass.appData = appData;
-				dataToPass.slots = dbManager.slotDBO.list();
+				
+				
+				
 				
 			}
 			
