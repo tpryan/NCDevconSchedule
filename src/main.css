@@ -29,6 +29,19 @@ s|List{
 	
 }
 
+/* IconItemReneder Label Style in tracklist*/
+ .triirLabel{
+	color: #FFFFFF;
+	
+}
+
+#trackList{
+	alternatingItemColors: #444444,#000000,#7c8a80,#b0b89e,#8c6842,#8c6842,#61513b,#444444;
+}
+
+	
+
+
 #fullNameLabel, #titleLabel{
 	color: #369;
 }

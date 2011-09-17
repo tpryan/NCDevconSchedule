@@ -46,7 +46,7 @@
 		]]>
 	</fx:Script>
 	
-	<s:List id="topicList" top="5" left="0" right="0" bottom="5" dataProvider="{topics}" labelField="title" click="topicList_clickHandler(event)">
+	<s:List id="topicList" top="0" left="0" right="0" bottom="0" dataProvider="{topics}" labelField="title" click="topicList_clickHandler(event)">
 		<s:itemRenderer>
 			<fx:Component>
 				<s:IconItemRenderer messageFunction="renderMessage" labelField="title" styleName="iirLabel" >
