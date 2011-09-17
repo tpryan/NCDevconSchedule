@@ -26,8 +26,46 @@ s|List{
 /* IconItemReneder Label Style*/
 .iirLabel{
 	color: #369;
+	
 }
 
+#fullNameLabel, #titleLabel{
+	color: #369;
+}
+
+.track1{
+	color: #000000;
+}
+
+.track2{
+	color: #7c8a80;
+}
+.track3{
+	color: #b0b89e;
+}
+.track4{
+	color: #8c6842;
+}
+.track5{
+	color: #8c6842;
+}
+
+.track6{
+	color: #61513b;
+}
+
+.track99{
+	color: #444444;
+}
+
+#trackLabel{
+	textDecoration: underline;
+}
+
+#speakerLabel{
+	color: #58181B;
+	textDecoration: underline;
+}
 
 @media (os-platform:"IOS"){
 	s|ActionBar{
@@ -36,3 +74,44 @@ s|List{
 	}
 }
 
+@media (application-dpi: 160){
+	#fullNameLabel, #titleLabel{
+		font-size: 30px;
+	}
+	
+	#trackLabel{
+		font-size: 20px;
+	}
+	
+	#speakerLabel{
+		font-size: 20px;
+	}
+}
+
+@media (application-dpi: 240){
+	#fullNameLabel, #titleLabel{
+		font-size: 45px;
+	}
+	
+	#trackLabel{
+		font-size: 30px;
+	}
+	
+	#speakerLabel{
+		font-size: 30px;
+	}
+}
+
+@media (application-dpi: 320){
+	#fullNameLabel, #titleLabel{
+		font-size: 60px;
+	}
+	
+	#trackLabel{
+		font-size: 40px;
+	}
+	
+	#speakerLabel{
+		font-size: 40px;
+	}
+}
